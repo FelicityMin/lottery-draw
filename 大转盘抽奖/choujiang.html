@@ -1,0 +1,459 @@
+﻿<!doctype html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+		<link rel="stylesheet" type="text/css" href="main.css">
+		<title>旋转-转盘-抽奖</title>
+		<style>
+			.writediv {
+				display: inline-block;
+				width: 86px;
+				height: 45px;
+				padding: 19px 0;
+				text-align: center;
+				background-color: yellow;
+				color: #fff;
+			}
+			
+			.div1 {
+				margin-left: 28%;
+				/* Rotate div */
+				transform: rotate(-30deg);
+				-webkit-transform: rotate(-30deg);
+				/* Safari 和 Chrome */
+			}
+			
+			.div2 {
+				/* Rotate div */
+				transform: rotate(30deg);
+				-webkit-transform: rotate(30deg);
+				/* Safari 和 Chrome */
+			}
+			
+			.div3 {
+				position: absolute;
+				margin-top: 82px;
+				margin-left: -38px;
+				/* Rotate div */
+				transform: rotate(90deg);
+				-webkit-transform: rotate(90deg);
+				/* Safari 和 Chrome */
+			}
+			
+			.div4 {
+				margin-left: 16%;
+				/* Rotate div */
+				transform: rotate(-90deg);
+				-webkit-transform: rotate(-90deg);
+				/* Safari 和 Chrome */
+			}
+			
+			.div5 {
+				position: absolute;
+				margin-top: 82px;
+				margin-left: -45px;
+				/* Rotate div */
+				transform: rotate(-150deg);
+				-webkit-transform: rotate(-150deg);
+				/* Safari 和 Chrome */
+			}
+			
+			.div6 {
+				position: absolute;
+				margin-top: 82px;
+				margin-left: 56px;
+				/* Rotate div */
+				transform: rotate(145deg);
+				-webkit-transform: rotate(145deg);
+				/* Safari 和 Chrome */
+			}
+			
+			.mui-input-group {
+				position: absolute;
+				top: 30%;
+				left: 18%;
+				background-color: #fff;
+				margin: 0 auto;
+			}
+			
+			.mui-input-group .mui-input-row {
+				height: 40px;
+			}
+			
+			.mui-input-row {
+				position: relative;
+			}
+			
+			.mui-input-row {
+				clear: left;
+				overflow: hidden;
+			}
+			
+			.mui-input-row label {
+				font-family: 'Helvetica Neue', Helvetica, sans-serif;
+				line-height: 1.1;
+				float: left;
+				width: 35%;
+				padding: 11px 15px;
+			}
+			
+			.mui-input-row label~input,
+			.mui-input-row label~select,
+			.mui-input-row label~textarea {
+				float: right;
+				width: 65%;
+				margin-bottom: 0;
+				padding-left: 0;
+				border: 0;
+			}
+			
+			.mui-input-group .mui-button-row {
+				height: 45px;
+			}
+			
+			.mui-button-row {
+				position: relative;
+				padding-top: 5px;
+				text-align: center;
+			}
+			
+			.mui-btn,
+			button,
+			input[type=button],
+			input[type=reset],
+			input[type=submit] {
+				font-size: 14px;
+				font-weight: 400;
+				line-height: 1.42;
+				position: relative;
+				display: inline-block;
+				margin-bottom: 0;
+				padding: 6px 12px;
+				cursor: pointer;
+				-webkit-transition: all;
+				transition: all;
+				-webkit-transition-timing-function: linear;
+				transition-timing-function: linear;
+				-webkit-transition-duration: .2s;
+				transition-duration: .2s;
+				text-align: center;
+				vertical-align: top;
+				white-space: nowrap;
+				color: #333;
+				border: 1px solid #ccc;
+				border-radius: 3px;
+				border-top-left-radius: 3px;
+				border-top-right-radius: 3px;
+				border-bottom-right-radius: 3px;
+				border-bottom-left-radius: 3px;
+				background-color: #fff;
+				background-clip: padding-box;
+			}
+			
+			.mui-btn-blue,
+			.mui-btn-primary,
+			input[type=submit] {
+				color: #fff;
+				border: 1px solid #007aff;
+				background-color: #007aff;
+			}
+			
+			.mui-btn-danger,
+			.mui-btn-negative,
+			.mui-btn-red {
+				color: #fff;
+				border: 1px solid #dd524d;
+				background-color: #dd524d;
+			}
+		</style>
+	</head>
+
+	<body>
+
+		<div id="ww_page">
+			<div id="ww_box" style="height: 375px !important;">
+				<div id="ww_rotate">
+					<div id="ww_plate"></div>
+					<div id="ww_arrow"></div>
+					<input type="hidden" value="6" id="getvalue" />
+					<div class="num"><i>您有<span id="cishu">3</span>次抽奖机会</i></div>
+				</div>
+			</div>
+
+			<div class="writediv div1">111</div>
+			<div class="writediv div2">222</div>
+			<div class="writediv div3">333</div>
+			<div class="writediv div4">444</div>
+			<div class="writediv div5">555</div>
+			<div class="writediv div6">666</div>
+
+			<div class="mygift">
+				<button id="namelist">我的奖品</button>
+				<a href="RewardSet.html" style="margin-top: -62px;">奖品设置</a>
+				<a href="NameList.html">中奖名单</a>
+				<a href="ActiveRule.html" style="margin-top: -18px;color:#eae9d4">活动规则</a>
+			</div>
+
+			<div class="bottomarrow"></div>
+
+			<div id="winList" class="list_lh">
+				<ul>
+					<li class="broadcast">
+						<span class="mingdan">137*****636恭喜您抽中了一等奖</span>
+					</li>
+					<li class="broadcast">
+						<span class="mingdan">135*****844恭喜您抽中了一等奖</span>
+					</li>
+					<li class="broadcast">
+						<span class="mingdan">183*****093恭喜您抽中了一等奖</span>
+					</li>
+					<li class="broadcast">
+						<span class="mingdan">137*****636恭喜您抽中了一等奖</span>
+					</li>
+					<li class="broadcast">
+						<span class="mingdan">137*****636恭喜您抽中了一等奖</span>
+					</li>
+				</ul>
+			</div>
+		</div>
+
+		<form class="mui-input-group" style="display: none;">
+			<div class="mui-input-row">
+				<label>Input</label>
+				<input type="text" placeholder="普通输入框">
+			</div>
+			<div class="mui-input-row">
+				<label>Input</label>
+				<input type="text" class="mui-input-clear" placeholder="带清除按钮的输入框" data-input-clear="5"><span class="mui-icon mui-icon-clear mui-hidden"></span>
+			</div>
+
+			<div class="mui-button-row">
+				<button type="button" class="mui-btn mui-btn-primary" onclick="return false;">确认</button>&nbsp;&nbsp;
+				<button type="button" class="mui-btn mui-btn-danger" onclick="return false;">取消</button>
+			</div>
+		</form>
+
+		<script src="jquery.min.js"></script>
+		<script src="mui.min.js"></script>
+		<script type="text/javascript" src="mTips.min.js"></script>
+		<script type="text/javascript" src="utils.js"></script>
+		<script type="text/javascript" src="mRotate.js"></script>
+		<script type="text/javascript" src="scroll.js"></script>
+
+		<script type="text/javascript">
+			$(document).on('tap', '.div1', function() {
+				$(".mui-input-group").css("display", "block");
+
+				$(document).on('tap', '.mui-btn-primary', function() {
+					$(".mui-input-group").css("display", "none");
+				});
+				$(document).on('tap', '.mui-btn-danger', function() {
+					$(".mui-input-group").css("display", "none");
+				});
+			});
+			$(document).on('tap', '.div2', function() {
+				$(".mui-input-group").css("display", "block");
+
+				$(document).on('tap', '.mui-btn-primary', function() {
+					$(".mui-input-group").css("display", "none");
+				});
+				$(document).on('tap', '.mui-btn-danger', function() {
+					$(".mui-input-group").css("display", "none");
+				});
+			});
+			$(document).on('tap', '.div3', function() {
+				$(".mui-input-group").css("display", "block");
+
+				$(document).on('tap', '.mui-btn-primary', function() {
+					$(".mui-input-group").css("display", "none");
+				});
+				$(document).on('tap', '.mui-btn-danger', function() {
+					$(".mui-input-group").css("display", "none");
+				});
+			});
+			$(document).on('tap', '.div4', function() {
+				$(".mui-input-group").css("display", "block");
+
+				$(document).on('tap', '.mui-btn-primary', function() {
+					$(".mui-input-group").css("display", "none");
+				});
+				$(document).on('tap', '.mui-btn-danger', function() {
+					$(".mui-input-group").css("display", "none");
+				});
+			});
+			$(document).on('tap', '.div5', function() {
+				$(".mui-input-group").css("display", "block");
+
+				$(document).on('tap', '.mui-btn-primary', function() {
+					$(".mui-input-group").css("display", "none");
+				});
+				$(document).on('tap', '.mui-btn-danger', function() {
+					$(".mui-input-group").css("display", "none");
+				});
+			});
+			$(document).on('tap', '.div6', function() {
+				$(".mui-input-group").css("display", "block");
+
+				$(document).on('tap', '.mui-btn-primary', function() {
+					$(".mui-input-group").css("display", "none");
+				});
+				$(document).on('tap', '.mui-btn-danger', function() {
+					$(".mui-input-group").css("display", "none");
+				});
+			});
+		</script>
+		<script type="text/javascript">
+			function hide2() {
+				location.reload();
+			}
+		</script>
+		<script type="text/javascript">
+			$("#namelist").click(function() {
+				window.location.href = "MyList.html";
+			});
+		</script>
+		<script type="text/javascript">
+			//缩放
+			scalePage('#ww_box');
+			// 奖品数据    
+			var prizeData = [{
+				id: 0,
+				prize: "一等奖",
+				angle: 3620
+			}, {
+				id: 1,
+				prize: "二等奖",
+				angle: 3890
+			}, {
+				id: 2,
+				prize: "5元券",
+				angle: 3690
+			}, {
+				id: 3,
+				prize: "10元券",
+				angle: 3750
+			}, {
+				id: 4,
+				prize: "20元券",
+				angle: 3870
+			}, {
+				id: 5,
+				prize: "50元券",
+				angle: 3630
+			}, {
+				id: 6,
+				prize: "谢谢参与",
+				angle: 3810
+			}, {
+				id: 7,
+				prize: "1000元券",
+				angle: 3930
+			}];
+
+			//var prizeData = [
+			//  {
+			//      id: 1,
+			//      prize: "一等奖",
+			//      angle: 3600
+			//  }
+			//  ,{
+			//      id: 2,
+			//      prize: "二等奖",
+			//      angle: 3720
+			//  }
+			//  , {
+			//      id: 3,
+			//      prize: "三等奖",
+			//      angle: 3840
+			//  }
+			//  , {
+			//      id: 4,
+			//      prize: "再接再厉",
+			//      angle: 3750
+			//  }
+			//  , {
+			//      id: 5,
+			//      prize: "要加油哦",
+			//      angle: 3865
+			//  }
+			//  , {
+			//      id: 6,
+			//      prize: "谢谢参与",
+			//      angle: 3930
+			//  }
+			//];
+
+			//旋转
+			var arrow = document.getElementById('ww_arrow'),
+				plate = document.getElementById('ww_plate'),
+				isRotate = false;
+			arrow.onclick = function() {
+				var cishu = document.getElementById('cishu').innerHTML;
+				if(cishu != 0) {
+					if(isRotate) return;
+					isRotate = true;
+
+					var num = document.getElementById('getvalue').value;
+					//  var num = (Math.random() * prizeData.length) >> 0,
+					data = prizeData[num];
+
+					//     console.log(num);
+					//     console.time('计时');
+					new Rotate({
+						//  	旋转对象
+						el: plate,
+						//        angle: 90,
+						//      angle 初始角度 默认0
+						//      animateTo 目标角度
+						animateTo: data.angle,
+						//      duration 持续时间
+						duration: 5000,
+						easeing: 'easeInOutCirc',
+						end: function() {
+							// console.timeEnd('计时');
+							isRotate = false;
+							Tips.alert(data.prize);
+						}
+					});
+					//谢谢参与的判断   
+					if(num == 6) {
+						window.Tips = {
+							_create: function() {
+								if(!this.BG) {
+									var a = document.getElementsByTagName("body")[0],
+										b = '<div id="aTips_foot" style="margin-top: 95%;"><a href="javascript:void(0);" onclick ="hide2()">首页</a><a style="float: right;" href="javascript:void(0);" onclick ="hide2()">再来一次</a></div>';
+									this.BG = document.createElement("div"),
+										this.BG.id = "aTips_wraps",
+										this.BG.innerHTML = b,
+										$(this.BG).insertAfter($("#ww_page")),
+										this.foot = $("#aTips_foot")
+								}
+							},
+							_setOption: function() {
+								this._create()
+							},
+							alert: function() {
+								this._setOption()
+							}
+						}
+					} else {
+						example();
+					}
+				} else {
+					alert("对不起,您的次数已经用完");
+				}
+			};
+		</script>
+		<script type="text/javascript">
+			$(function() {
+				$("div#winList").myScroll({
+					speed: 40, //数值越大，速度越慢
+					rowHeight: 31 //li的高度
+				});
+			});
+		</script>
+	</body>
+
+</html>

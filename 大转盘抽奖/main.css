@@ -1,0 +1,37 @@
+*{margin: 0; padding: 0;}
+#ww_page{ overflow:hidden; width:100%; top: 16%; position: absolute;}
+#ww_rotate{position: absolute;margin: 0 auto;width:640px;height:640px;}
+*{font-family:"微软雅黑"; }
+body{background: url(background.png) no-repeat;background-size: 100%;background-color: #ea3836;}
+#ww_plate{top:0;width:600px;height:600px;background:url(bigpan.png) center no-repeat;background-size: 100% 100%;transition: none;margin: 0 auto;position:  absolute;}
+#ww_arrow{position:absolute; top:162px; left:50%; z-index: 10;margin-left: -87px;width:167px;height:226px; background:url(arrow.png) center no-repeat; }
+#aTips_wrap{width: 100%;height: 100%; position: absolute;background-image: url(rewardpop.png); background-size: 100%;background-color:#222;background-repeat:no-repeat; background-position-y: 82px;opacity:0.9;}
+#aTips_wraps{width: 100%;height: 100%; position: absolute;background-image: url(noreward.png); background-size: 100%;background-color:#222;background-repeat:no-repeat; background-position-y: 125px;opacity:0.9;}
+#aTips_foot{background: #ff6501;border-radius: 6px; width: 64%;margin:0 auto;margin-top: 15%;}
+#aTips_foot a{color:transparent; text-decoration: none; display: inline-block; width: 100%;height: 40px;float: left;}
+#aTips_content{font-size: 32px;letter-spacing: 2px;color:transparent; height: 49px;line-height: 49px;}
+#aTips_contents{font-size: 22px;color:#6d191c;height: 39px;line-height: 39px;}
+#aTips_box{margin-top: 53%;text-align: center;}
+
+#winList{overflow: hidden; height: 30px;clear:both;margin: 0 auto;background-color: #f9f3dd;border-radius: 15px;width: 86%;}
+.broadcast{background:url(broadcast.png) no-repeat 9px; background-size: 22px; padding: 5px 0 5px 0;}
+.mingdan{padding-left: 36px;color:#ea3836;float:left}
+.num{text-align: center;font-size: 1.6em;color:#ffe888}
+.num span{font-size: 1.2em;color:#fff}
+.mygift{padding: 36px 0 0 0;}
+.mygift button{border-radius: 8px; border: 1px solid #ffe21a;background: #ffe21a;color:#9c4f31;margin: 0 auto; display: block;width: 136px;height: 39px;font-weight: bold;font-size: 15px;}
+.mygift a{float: right;text-decoration: underline; margin-top: -40px;font-size: 14px;margin-right: 8%;color:#ffab4b}
+.bottomarrow{background: url(bottomarrow.png) no-repeat center;background-size: 28px;height: 39px;}
+
+.namelist{width: 72%;margin: 0 auto; margin-top: 32%;}
+.namelist img{width: 30px;height:30px;float: left;}
+.namelist p{float: right;}
+.namelist li{height:30px;line-height:30px;border-bottom: 1px solid #e9742e;}
+
+.mylist{text-align: center;margin-top: 37%;}
+.login{
+	display: block;
+    width: 35%;
+    height: 35px;
+    margin: 0 auto;
+}
